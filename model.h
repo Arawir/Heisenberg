@@ -22,15 +22,15 @@ MPO heisenbergHamiltonian(SpinHalf &sites,
 {
     auto ampo = AutoMPO(sites);
     for(int j=1; j<L; j++){
-        ampo += K,"Sp",j,"Sm",j+1;
-        ampo += K,"Sm",j,"Sp",j+1;
+        ampo += K/2.0,"Sp",j,"Sm",j+1;
+        ampo += K/2.0,"Sm",j,"Sp",j+1;
         ampo += K,"Sz",j,"Sz",j+1;
 
     }
 
     if(Args::global().getBool("PBC")){
-        ampo += K,"Sp",L,"Sm",1;
-        ampo += K,"Sm",L,"Sp",1;
+        ampo += K/2.0,"Sp",L,"Sm",1;
+        ampo += K/2.0,"Sm",L,"Sp",1;
         ampo += K,"Sz",L,"Sz",1;
     }
 
