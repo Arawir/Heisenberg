@@ -1,3 +1,0 @@
-/home/maciej/IKW_IM/PRAKTYKI_PWR/Heisenberg/bin/CMakeFiles/rebuild_cache.dir
-/home/maciej/IKW_IM/PRAKTYKI_PWR/Heisenberg/bin/CMakeFiles/Heisenberg.dir
-/home/maciej/IKW_IM/PRAKTYKI_PWR/Heisenberg/bin/CMakeFiles/edit_cache.dir

@@ -13,5 +13,5 @@ module load gcc/7.3.0
 
 ITENSOR_V3_PATH='/home/marmac96/itensor'
 
-g++ main.cpp -o Hubbard -m64 -std=c++17 -fconcepts -fPIC -I '/home/marmac96/itensor' -O2 -DNDEBUG -Wall -Wno-unknown-pragmas -Wno-unused-variable -L'/home/marmac96/itensor/lib' -litensor -L/usr/lib -lblas -llapack -lpthread
+g++ main.cpp -o Heisenberg -m64 -std=c++17 -fconcepts -fPIC -I '/home/marmac96/itensor' -O2 -DNDEBUG -Wall -Wno-unknown-pragmas -Wno-unused-variable -L'/home/marmac96/itensor/lib' -litensor -L/usr/lib -lblas -llapack -lpthread
 
