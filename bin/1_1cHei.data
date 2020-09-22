@@ -1,0 +1,23 @@
+---------------------------- System parameters ---------------------------
+  K ->   0.042857143 (default)
+  L ->   24 (default)
+  PBC ->   0 (default)
+  dtime ->   0.042857143 
+  maxtime ->   96.0 (default)
+  Silent ->   1 (default)
+  cutoff ->   1E-8 (default)
+  sweeps ->   4 (default)
+  minDim ->   1 (default)
+  maxDim ->   200 
+  niter ->   30 (default)
+  state ->   L/2*Up-L/2*Dn (default)
+  ConserveSz ->   0 (default)
+  exp ->   timeEv (default)
+  PBSenable ->   0 (default)
+  PBSjobid ->   0 (default)
+--------------------Start-------------------------------------------------------(0.000164 [s],0.000184 [s])
+Up-Up-Up-Up-Up-Up-Up-Up-Up-Up-Up-Up-Dn-Dn-Dn-Dn-Dn-Dn-Dn-Dn-Dn-Dn-Dn-Dn-
+--------------------Starting TDVP-----------------------------------------------(0.002157 [s],0.001972 [s])
+ t: 0 rtime= 0.002174 mem= unknown dim= 1 E= 0  Sz1:L= 0.5 0.5 0.5 0.5 0.5 0.5 0.5 0.5 0.5 0.5 0.5 0.5 -0.5 -0.5 -0.5 -0.5 -0.5 -0.5 -0.5 -0.5 -0.5 -0.5 -0.5 -0.5 
+
+Zero norm

@@ -1,0 +1,17 @@
+#PBS -S /bin/bash
+#PBS -q main
+#PBS -l walltime=00:04:00
+#PBS -l select=1:ncpus=1:mem=800MB
+
+cd $PBS_O_WORKDIR
+
+module load mkl
+module load lapack
+module load gcc/7.3.0
+
+
+
+ITENSOR_V3_PATH='/home/marmac96/itensor'
+
+g++ main.cpp -o Hubbard -m64 -std=c++17 -fconcepts -fPIC -I '/home/marmac96/itensor' -O2 -DNDEBUG -Wall -Wno-unknown-pragmas -Wno-unused-variable -L'/home/marmac96/itensor/lib' -litensor -L/usr/lib -lblas -llapack -lpthread
+

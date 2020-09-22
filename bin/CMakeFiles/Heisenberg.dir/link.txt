@@ -1,0 +1,1 @@
+/usr/bin/c++  -g  -rdynamic CMakeFiles/Heisenberg.dir/main.cpp.o  -o Heisenberg -Wall -pedantic -m64 -std=c++17 -fconcepts -fopenmp -fPIC -I'/home/maciej/itensor' -O2 -DNDEBUG -Wall -Wno-unknown-pragmas -Wno-unused-variable -L'/home/maciej/itensor/lib' -litensor -larmadillo -lpthread -L/usr/lib -lblas -llapack 
