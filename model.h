@@ -39,6 +39,15 @@ MPO heisenbergHamiltonian(SpinHalf &sites,
 /////////////////////////////////////////////////
 void prepareObservables()
 {
+    ExpCon("Sz") = [](const SpinHalf &sites){
+        auto ampo = AutoMPO(sites);
+
+        for(int i=1; i<=sites.length(); i++){
+            ampo += 1.0,"Sz",i;
+        }
+
+        return toMPO(ampo);
+    };
     ExpCon("Sz1:L") = [](const SpinHalf &sites){
         std::vector<MPO> out;
 

@@ -1,25 +1,20 @@
 #PBS -S /bin/bash
 #PBS -q main
 #PBS -l walltime=48:00:00
-#PBS -l select=1:ncpus=12:mem=3GB
-#PBS -N 1Hei
+#PBS -l select=1:ncpus=6:mem=3GB
+#PBS -N 28_10Hei
 
 cd $PBS_O_WORKDIR
-./Heisenberg PBSenable=0 PBSjobid=$PBS_JOBID dtime=0.042857143 maxDim=40  > 1_1aHei.data &
-./Heisenberg PBSenable=0 PBSjobid=$PBS_JOBID dtime=0.042857143 maxDim=100 > 1_1bHei.data &
-./Heisenberg PBSenable=0 PBSjobid=$PBS_JOBID dtime=0.042857143 maxDim=200 > 1_1cHei.data &
+./Heisenberg PBSenable=1 PBSjobid=$PBS_JOBID dtime=0.1 cutoff=1E-8 maxDim=80  > 28_10/1.data &
+./Heisenberg PBSenable=1 PBSjobid=$PBS_JOBID dtime=0.1 cutoff=1E-8 maxDim=10  > 28_10/2.data &
+./Heisenberg PBSenable=1 PBSjobid=$PBS_JOBID dtime=0.1 cutoff=1E-8 maxDim=120  > 28_10/3.data &
 
-./Heisenberg PBSenable=0 PBSjobid=$PBS_JOBID dtime=0.42857143 maxDim=40  > 1_2aHei.data &
-./Heisenberg PBSenable=0 PBSjobid=$PBS_JOBID dtime=0.42857143 maxDim=100 > 1_2bHei.data &
-./Heisenberg PBSenable=0 PBSjobid=$PBS_JOBID dtime=0.42857143 maxDim=200 > 1_2cHei.data &
+./Heisenberg PBSenable=1 PBSjobid=$PBS_JOBID dtime=0.05 cutoff=1E-8 maxDim=80  > 28_10/4.data &
+./Heisenberg PBSenable=1 PBSjobid=$PBS_JOBID dtime=0.05 cutoff=1E-8 maxDim=100  > 28_10/5.data &
+./Heisenberg PBSenable=1 PBSjobid=$PBS_JOBID dtime=0.05 cutoff=1E-8 maxDim=120  > 28_10/6.data &
 
-./Heisenberg PBSenable=0 PBSjobid=$PBS_JOBID K=0.021428571 dtime=0.021428571 maxDim=40  > 1_3aHei.data &
-./Heisenberg PBSenable=0 PBSjobid=$PBS_JOBID K=0.021428571 dtime=0.021428571 maxDim=100 > 1_3bHei.data &
-./Heisenberg PBSenable=0 PBSjobid=$PBS_JOBID K=0.021428571 dtime=0.021428571 maxDim=200 > 1_3cHei.data &
 
-./Heisenberg PBSenable=0 PBSjobid=$PBS_JOBID K=0.021428571 dtime=0.21428571 maxDim=40  > 1_4aHei.data &
-./Heisenberg PBSenable=0 PBSjobid=$PBS_JOBID K=0.021428571 dtime=0.21428571 maxDim=100 > 1_4bHei.data &
-./Heisenberg PBSenable=0 PBSjobid=$PBS_JOBID K=0.021428571 dtime=0.21428571 maxDim=200 > 1_4cHei.data &
+
 
 wait
 

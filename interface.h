@@ -105,6 +105,23 @@ struct Param{
     std::string value;
     bool wasSet=false;
 
+//    std::vector<std::string> values;
+//    std::vector<std::string> operators;
+
+//    void setValue(std::string text)
+//    {
+//        values.push_back("");
+//        for(uint i=0; i<text.length(); i++){
+//            if( (text[i]=='+')||(text[i]=='-')||(text[i]=='*')||(text[i]=='/')||(text[i]=='^') ){
+//                operators.push_back( std::string(text[i]) );
+//            } else {
+//                values.back().append(text[i]);
+//            }
+//        }
+//    }
+
+
+
     int getInt(){
         if(type!="int"){
             std::cerr << "WARNING: wrong type conversion (" + name + ")!" << std::endl;
