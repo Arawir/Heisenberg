@@ -27,6 +27,31 @@ int main(int argc, char *argv[])
         ExpCon.calc(psi, oMode::b,"mem","dim","E","Sz1:L");
     };
 
+    Experiments("DmrgWithApplyingS") = [](){
+        auto [sites,psi,H,sweeps] = prepareExpBasic();
+        ExpCon.setSites(sites);ExpCon("E") = H;
+        ExpCon.calc(psi, oMode::b,"mem","dim","E","Sz1:L");
+
+
+        auto ampo = AutoMPO(sites);
+        ampo += 1.0,"S+",getI("L")/2;
+        //ampo += 1.0,"projUp",4;
+        auto Oper =  toMPO(ampo);
+
+        ExpCon.addPoint("Starting DMRG");
+        dmrg(psi,H,sweeps);
+        ExpCon.calc(psi, oMode::b,"mem","dim","E","Sz","Sz1:L");
+
+        ExpCon.addPoint("Apply OpS+");
+        auto psi2 = applyMPO(Oper,psi,{"Method=","DensityMatrix","MaxDim=",400,"Cutoff=",1E-12});
+        ExpCon.calc(psi2, oMode::b,"mem","dim","E","Sz","Sz1:L");
+
+        ExpCon.addPoint("Normalize");
+        psi2.normalize();
+
+        ExpCon.calc(psi2, oMode::b,"mem","dim","E","Sz","Sz1:L");
+    };
+
     Experiments("timeEv") = [](){
         auto [sites,psi,H,sweeps] = prepareExpBasic();
         ExpCon.setSites(sites);ExpCon("E") = H;
@@ -66,22 +91,23 @@ int main(int argc, char *argv[])
 
 
     Params.add("K","double","1.0");
-    Params.add("L","int","24");
+    Params.add("L","int","9");
     Params.add("PBC","bool","0");
 
     Params.add("dtime","double","0.1");
     Params.add("maxtime","double","196.0");
 
     Params.add("Silent","bool","1");
-    Params.add("cutoff","double","1E-8");
+    Params.add("cutoff","double","1E-12");
     Params.add("sweeps","int","4");
     Params.add("minDim","int","1");
-    Params.add("maxDim","int","100");
+    Params.add("maxDim","int","400");
     Params.add("niter","int","30");
     Params.add("state","string","Up-Dn");
-    Params.add("ConserveSz","bool","0");
-    Params.add("ConserveQNs","bool","0");
-    Params.add("exp","string","timeEvGs");
+    Params.add("ConserveSz","bool","1");
+    Params.add("ConserveQNs","bool","1");
+    Params.add("ConserveParity","bool","1");
+    Params.add("exp","string","DmrgWithApplyingS");
 
     Params.add("PBSenable","bool","0");
     Params.add("PBSjobid","int","0");
